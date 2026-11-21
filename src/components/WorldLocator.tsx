@@ -15,7 +15,7 @@ export function WorldLocator({ countries, label, lang }: { countries: Country[];
   const meridians = [-150, -120, -90, -60, -30, 0, 30, 60, 90, 120, 150]
   const parallels = [-60, -30, 0, 30, 60]
   return <div className="world-locator">
-    <svg viewBox="0 0 360 180" role="img" aria-label={label} className="world-locator-svg">
+    <svg viewBox="0 0 360 180" role="group" aria-label={label} className="world-locator-svg">
       <rect x="0" y="0" width="360" height="180" rx="4" className="world-locator-bg"/>
       {meridians.map(lon => <line key={lon} x1={project([0, lon]).x} y1="0" x2={project([0, lon]).x} y2="180" className="world-locator-grid"/>)}
       {parallels.map(lat => <line key={lat} x1="0" y1={project([lat, 0]).y} x2="360" y2={project([lat, 0]).y} className="world-locator-grid"/>)}

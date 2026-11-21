@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { AdminCard, AdminPageHeader, AdminStatusBadge } from '../components/ui'
 
 const pages = [
@@ -15,7 +15,7 @@ export default function ContentPagesPage() {
   return <>
     <AdminPageHeader title="Pages" description="Every page listed here is real and already live on the public site." trail={['Content Management', 'Pages']}/>
     <AdminCard title="Published Pages">
-      <div className="admin-table-wrap"><table className="admin-table">
+      <div className="admin-table-wrap" tabIndex={0} role="region" aria-label="Scrollable data table"><table className="admin-table">
         <thead><tr><th>Page</th><th>Public Route</th><th>Status</th><th>Note</th><th/></tr></thead>
         <tbody>{pages.map(page => <tr key={page.id}>
           <td>{page.title}</td><td><code>{page.publicPath}</code></td>

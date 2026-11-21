@@ -1,4 +1,4 @@
-import { AdminCard, AdminPageHeader, AdminStatusBadge, KPIStatCard } from '../components/ui'
+﻿import { AdminCard, AdminPageHeader, AdminStatusBadge, KPIStatCard } from '../components/ui'
 import { chapters } from '../../data/chapters'
 
 export default function ChaptersAdminPage() {
@@ -11,7 +11,7 @@ export default function ChaptersAdminPage() {
       <KPIStatCard label="Editorial Pending" value={String(chapters.length - published)}/>
     </div>
     <AdminCard title="Chapter Records">
-      <div className="admin-table-wrap"><table className="admin-table">
+      <div className="admin-table-wrap" tabIndex={0} role="region" aria-label="Scrollable data table"><table className="admin-table">
         <thead><tr><th>#</th><th>Sanskrit Title</th><th>English Title</th><th>Verses</th><th>Verse Status</th></tr></thead>
         <tbody>{chapters.map(chapter => <tr key={chapter.id}>
           <td>{String(chapter.id).padStart(2, '0')}</td><td lang="sa">{chapter.transliteration}</td><td>{chapter.titleEn}</td><td>{chapter.verses}</td>

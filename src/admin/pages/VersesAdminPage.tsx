@@ -1,12 +1,12 @@
-import { AdminCard, AdminEmptyNotice, AdminPageHeader, AdminStatusBadge } from '../components/ui'
+﻿import { AdminCard, AdminEmptyNotice, AdminPageHeader, AdminStatusBadge } from '../components/ui'
 import { verses } from '../../data/verses'
 import { content } from '../../content'
 
 export default function VersesAdminPage() {
   return <>
-    <AdminPageHeader title="Verses" description="Scripture records — only Scripture Reviewer–approved verses may be published." trail={['Content Management', 'Verses']}/>
+    <AdminPageHeader title="Verses" description="Scripture records â€” only Scripture Reviewerâ€“approved verses may be published." trail={['Content Management', 'Verses']}/>
     <AdminCard title="Approved Verse Records">
-      <div className="admin-table-wrap"><table className="admin-table">
+      <div className="admin-table-wrap" tabIndex={0} role="region" aria-label="Scrollable data table"><table className="admin-table">
         <thead><tr><th>Chapter.Verse</th><th>Sanskrit (original)</th><th>Attribution</th><th>Approved By</th><th>Status</th></tr></thead>
         <tbody>{verses.map(verse => <tr key={verse.chapter + '.' + verse.verseNumber}>
           <td>{verse.chapter}.{verse.verseNumber}</td>

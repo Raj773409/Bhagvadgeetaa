@@ -98,6 +98,12 @@ try {
           '/admin', '/admin/countries', '/admin/roles', '/admin/participants',
           '/gita/companion', '/gita/explorer', '/live', '/participant/journey', '/admin/ai-center']) {
           await page.goto(url + route)
+          // Pages fade in via a JS opacity animation when reduced-motion isn't honoured; wait for
+          // it to settle so axe never samples text mid-fade (a false color-contrast failure).
+          await page.waitForFunction(() => {
+            const main = document.querySelector('main')
+            return !main || getComputedStyle(main).opacity === '1'
+          })
           await page.addScriptTag({ path: require.resolve('axe-core/axe.min.js') })
           const audit = await page.evaluate(async () => window.axe.run(document, {
             runOnly: { type: 'tag', values: ['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa'] },

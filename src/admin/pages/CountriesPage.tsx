@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { AdminCard, AdminPageHeader, AdminStatusBadge, KPIStatCard } from '../components/ui'
 import { countries } from '../../data/countries'
 
@@ -11,7 +11,7 @@ export default function CountriesPage() {
       <KPIStatCard label="Awaiting Coordinators" value={String(countries.length)} hint="No coordinators have been confirmed for any country yet"/>
     </div>
     <AdminCard title="Country Directory">
-      <div className="admin-table-wrap">
+      <div className="admin-table-wrap" tabIndex={0} role="region" aria-label="Scrollable data table">
         <table className="admin-table">
           <thead><tr><th>Country</th><th>National Language(s)</th><th>Coordinator</th><th>Status</th><th/></tr></thead>
           <tbody>{countries.map(country => <tr key={country.id}>

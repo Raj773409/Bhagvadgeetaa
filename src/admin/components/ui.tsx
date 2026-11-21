@@ -13,7 +13,7 @@ export function DataTable<T extends { id: string }>({ columns, rows, emptyTitle,
   columns: Column<T>[]; rows: T[]; emptyTitle: string; emptyBody: string
 }) {
   if (rows.length === 0) return <AdminEmptyNotice title={emptyTitle} body={emptyBody}/>
-  return <div className="admin-table-wrap">
+  return <div className="admin-table-wrap" tabIndex={0} role="region" aria-label="Scrollable data table">
     <table className="admin-table">
       <thead><tr>{columns.map(col => <th key={col.key} style={col.align === 'right' ? { textAlign: 'right' } : undefined}>{col.label}</th>)}</tr></thead>
       <tbody>{rows.map(row => <tr key={row.id}>{columns.map(col => <td key={col.key} style={col.align === 'right' ? { textAlign: 'right' } : undefined}>
